@@ -15,13 +15,15 @@ app.use(express.json());
 
 // THIS WILL ALLOW US TO CONNECT TO MONGOOSE via OUR .ENV
 app.use(express.static("public"));
+
+// when I npm start i get Mongo parse error: the "uses" below are no longer supported will comment out to see if it will rrun properly this way
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost/budget',
   {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
+    // useCreateIndex: true,
+    // useFindAndModify: false
   }
 );
 app.use(express.static("public"));
