@@ -19,7 +19,7 @@ request.onupgradeneeded = ({ target }) => {
 // This is for errors of the retrieving records from the indexedDB
 request.onerror = (event) => {
     console.log(`\nREQUEST ERROR: \n${event.target}\n`);
-    }
+};
 
 // saveRecord function to save transactions
 // open trans w/pending object store to be able to open and save later
