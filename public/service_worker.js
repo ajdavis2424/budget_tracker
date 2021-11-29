@@ -28,11 +28,11 @@ self.addEventListener("fetch", function (event) {
             console.log("[Service Worker] Fetch (data)", event.request.url);
 		//  Use cache but update the entry with the latest contents from the server.
             event.respondWith(caches.open(DATA_CACHE).then(function (cache) {
-                  // If the request is for the API, try the network first, fall back to the offline page if it isn't available
+                  // If the request is for API, try the network first, THENfall back to the offline page if unavailable
                   return fetch(event.request).then(function (response) {
                         // If this request works, repeat response
                         cache.put(event.request.url, response.clone());
-                        // Return the first response
+                        // Returns the 1st response
                         return response;
                     }).catch(err => {
                         // Network request failed, try to get it from the cache.
