@@ -16,11 +16,17 @@ request.onupgradeneeded = ({ target }) => {
 	}
 };
   
+// This is for errors of the retrieving records from the indexedDB
+request.onerror = (event) => {
+    console.log(`\nREQUEST ERROR: \n${event.target}\n`);
+    }
+
 // saveRecord function to save transactions
 // open trans w/pending object store to be able to open and save later
 function saveRecord(record) {
+    // start transaction
     const transaction = db.transaction(["pending"], "readwrite");
-      const pendstore = transaction.objectStore("pending");
+   const pendstore = transaction.objectStore("pending");
 
       pendstore.add(record);
 }
@@ -28,10 +34,33 @@ function saveRecord(record) {
 function checkOurDatabase() {
     const transaction = db.transaction(["pending"], "readwrite");
     const pendStore = transaction.objectStore("pending");
+    const allPend = pendStore.getAll();
 
 
+// Handle the successful retrieval of the records from the indexed DB
+allPend.onsuccess = () => {
+    //  A record  in indexDB, they'll be sent tp the server
+    if(allPend.length > 0){
+
+        // Adding fetch web API requestto checkOurDatabase function
+        fetch("/api/transaction/bulk", {
+            method: "POST",
+            body: JSON.stringify(allPending.result),
+            headers: {
+                  Accept: "application/json",
+                  "Content-Type": "application/json"
+            }
+      })  
+      .then(response => response.json())
+                  .then(() => {
+                      // Clears record from indexDB if everything works
+                      const transaction = db.transaction(["pending"], "readwrite");
+                      const pendStore = transaction.objectStore("pending");
+                      pendStore.clear();
+                });
+         }
+    }
 }
-
 
 window.addEventListener("online", checkOurDatabase); 
 
