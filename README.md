@@ -30,14 +30,15 @@ npm start
 * [**MongoDB**](https://www.mongodb.com/) 
 * [**Heroku**](https://www.heroku.com/) 
 * [**Node.js**](https://nodejs.org/en/about/)
-*  - [Mongoose](https://www.npmjs.com/package/mongoose) - Database implementation 
-*  - [Express](https://www.npmjs.com/package/express) - Web Framework for Node.JS
+* [Mongoose](https://www.npmjs.com/package/mongoose) - Database implementation 
+* [Express](https://www.npmjs.com/package/express) - Web Framework for Node.JS
 * [**Visual Studio Code**](https://code.visualstudio.com/)
 
 ---
 
 ## **Author**
 **Alexander J. Davis**   
+
 LinkedIn: [@Alexander Davis, MBA](https://www.linkedin.com/in/alexander-davis-mba-3674716a/)  
 Email: (mailto:ajdavis2424@gmail.com)  
 Portfolio: (https://ajdavis2424.github.io/Professional-Portfolio/)  
