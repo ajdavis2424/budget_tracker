@@ -2,12 +2,11 @@
 
 ## **Table Of Contents**
 
-- [Budget Tracker](#budget-tracker)
+- [Budget Tracker](#budget_tracker)
   - [Table of contents](#table-of-contents)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Built With](#built-with)
-  - [Contributing](#contributing)
   - [Author](#author)
   - [License](#license)
 
